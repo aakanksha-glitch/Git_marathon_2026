@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML & CSS Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #2c3e56;
+      --navy-dark: #243346;
+      --accent: #3b8fd4;
+      --accent-hover: #2e72ad;
+      --bg: #f0f2f5;
+      --card-bg: #ffffff;
+      --text: #2c3e56;
+      --muted: #6b7a8d;
+      --heading-color: #2c3e56;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 40px
+      );
+      pointer-events: none;
+    }
+
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    header p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      position: relative;
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 3rem 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 2.8rem 3rem;
+      max-width: 780px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(44,62,86,0.08), 0 1px 4px rgba(44,62,86,0.05);
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section { margin-bottom: 2rem; }
+    .section:last-of-type { margin-bottom: 2.4rem; }
+
+    .section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: #4a5568;
+    }
+
+    /* ── BUTTON ── */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.65rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(59,143,212,0.25);
+      letter-spacing: 0.01em;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(59,143,212,0.35);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(59,143,212,0.2);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.4rem 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(44,62,86,0.08);
+    }
+
+    @media (max-width: 560px) {
+      .card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to HTML &amp; CSS Basics</h1>
+    <p>A simple guide to get you started with web development!</p>
+  </header>
+
+  <main>
+    <div class="card">
+
+      <div class="section">
+        <h2>What is HTML?</h2>
+        <p>HTML stands for HyperText Markup Language. It is the core building block of the web, providing the structure for webpages.</p>
+      </div>
+
+      <div class="section">
+        <h2>What is CSS?</h2>
+        <p>CSS stands for Cascading Style Sheets. It describes how HTML elements are to be displayed on screen, paper, or in other media.</p>
+      </div>
+
+      <button class="btn" onclick="alert('You clicked the button! 🎉')">Click Me!</button>
+
+    </div>
+  </main>
+
+  <footer>
+    Created for Hacktoberfest 2025 &mdash; Beginner Tech Resources
+  </footer>
+
+</body>
+</html>
